@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+
+<div layout:fragment="content">
+
+<!--    <div>-->
+<!--        <img src='/image/repick_logo_blue.svg' width='75%' class="sign_logo">-->
+<!--    </div>-->
+    <form th:action="@{/user/signup}" th:object="${userCreateForm}" method="post" enctype='multipart/form-data' class="sign_up_join">
+        <div th:replace="form_errors :: formErrorsFragment" ></div>
+        <div class="signup_box">
+            <h4 class="Tmoney-fontsize-130">회원가입</h4>
+            <div class="singup_form">
+                <label for="username" class="form-label KOTRA-fontsize-100">사용자ID</label><br>
+                <input type="text" th:field="*{username}">
+            </div>
+            <div class="singup_form">
+                <label for="nickname" class="form-label KOTRA-fontsize-100">닉네임</label><br>
+                <input type="text" th:field="*{nickname}">
+            </div>
+            <div class="singup_form">
+                <label for="password" class="form-label KOTRA-fontsize-100">비밀번호</label><br>
+                <input type="password" th:field="*{password1}">
+            </div>
+            <div class="singup_form">
+                <label for="password" class="form-label KOTRA-fontsize-100">비밀번호 확인</label><br>
+                <input type="password" th:field="*{password2}">
+            </div>
+            <div class="singup_form">
+                <label for="email" class="form-label KOTRA-fontsize-100">이메일</label><br>
+                <input type="email" th:field="*{email}">
+            </div>
+
+
+            <!--파일업로드버튼-->
+            <div class="marginBottom-3">
+                <div class="fileboxS align-Center-row">
+                    <input class="upload-name" value="첨부파일" placeholder="첨부파일">
+                    <label for="file">프로필이미지</label>
+                    <input type="file" name="file" id="file">
+                </div>
+            </div>
+
+            <div class='singup_form'>
+                <button type="submit" class="btn-1 custom-btn btn-primary">회원가입</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+</html>
